@@ -2,7 +2,7 @@
   "use strict";
 
   // TODO: set suitable name:
-  var pluginName = "ExamplePlugin";
+  var pluginName = 'ExamplePlugin';
 
   $[pluginName] = function(element, options) {
 
@@ -49,7 +49,7 @@
 
   $.fn[pluginName] = function(options) {
     return this.each(function() {
-      if($(this).data(pluginName) === "undefined") {
+      if($(this).data(pluginName) === 'undefined') {
         var plugin = new $[pluginName](this, options);
         $(this).data(pluginName, plugin);
       }
