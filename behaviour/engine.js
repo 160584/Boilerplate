@@ -39,8 +39,8 @@ $(document).ready(function () {
 /**
   Skip2 links move focus to target:
 */
-  $("a[href^='#']").click(function(){
-    $("#" + $(this).attr("href").slice(1)).focus();
+  $('a[href^="#"']").click(function(){
+    $('#' + $(this).attr('href').slice(1)).focus();
   });
 
 
