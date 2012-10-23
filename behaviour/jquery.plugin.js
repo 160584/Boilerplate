@@ -1,8 +1,10 @@
-(function($) {
+/*jshint asi:true */
+/*global jQuery:true */
+;(function($) {
   "use strict";
 
   // TODO: set suitable name:
-  var pluginName = 'ExamplePlugin';
+  var pluginName = 'ExamplePlugin'
 
   $[pluginName] = function(element, options) {
 
@@ -10,50 +12,50 @@
     var defaultOptions = {
       option: null,
       test: null
-    };
+    }
 
     // (internal) settings
     var settings = {
       onFoo: function() { } // a callback
-    };
+    }
 
     // scoping helper inside events eg
-    var plugin = this;
+    var plugin = this
 
     // global element reference
-    var $element = $(element);
+    var $element = $(element)
 
     //constructor
     var init = function() {
 
-      settings = $.extend({}, settings, defaultOptions, options);
+      settings = $.extend({}, settings, defaultOptions, options)
 
       // code goes here
 
-    };
+    }
 
     // Public method:
     plugin.doSomething = function() {
 
-    };
+    }
 
     // Een private method:
     var doPrivate = function() {
 
-    };
+    }
 
     // initialize
-    init();
+    init()
 
   };
 
   $.fn[pluginName] = function(options) {
     return this.each(function() {
       if($(this).data(pluginName) === 'undefined') {
-        var plugin = new $[pluginName](this, options);
-        $(this).data(pluginName, plugin);
+        var plugin = new $[pluginName](this, options)
+        $(this).data(pluginName, plugin)
       }
-    });
-  };
+    })
+  }
 
 })(jQuery);

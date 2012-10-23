@@ -1,47 +1,44 @@
 /**
   Example.nl - engine.js
 */
-"use strict";
-
+/*jshint asi:true */
+/*global jQuery:true */
 
 /**
   Base:
 */
-
 var Example = {
 
   settings: {},
 
   defaults: {},
 
-  init: function () {
+  init: function(){
 
-//    console.log('init');
+//    console.log('init')
 
   },
 
-  doSomething: function (event) {
+  doSomething: function(event){
 
   }
 
-};
-
-
+}
 
 
 /**
   Document Ready:
 */
-$(document).ready(function () {
+$(document).ready(function(){
 
 
 
 /**
   Skip2 links move focus to target:
 */
-  $('a[href^="#"']").click(function(){
-    $('#' + $(this).attr('href').slice(1)).focus();
-  });
+  $('a[href^="#"]').on('click', function(){
+    $( $(this).attr('href') ).focus()
+  })
 
 
-}); // end document.ready
+}) // end document.ready
