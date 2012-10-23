@@ -36,7 +36,7 @@ Waar bestaat het uit?
   - engine.js          De belangrijkste functies die nodig zijn op iedere pagina + on-document-ready{}-verzamelplaats.
   
   - /libs/
-    - jquery-1.7.2.min.js  #TODO: check nieuwste versie: http://jquery.com/
+    - jquery-1.8.2.min.js  #TODO: check nieuwste versie: http://jquery.com/
 
   * modernizr.custom.js    #TODO: Een custom versie genereren met alleen de nodige tests: http://www.modernizr.com/download/
 
