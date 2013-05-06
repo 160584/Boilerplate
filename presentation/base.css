@@ -15,15 +15,16 @@
   Setup
 ============================================================================= */
 html {
+  color: #000;
+  background: #fff;
+  font-family: "Arial", sans-serif;
   font-size: 100%;
-  overflow-y: scroll;
-  -webkit-overflow-scrolling: touch;
-  overflow-scrolling: touch;
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
-  text-size-adjust: 100%;
 }
-article, aside, details, figcaption, figure, footer, header, hgroup, nav, section { display: block; }
+article, aside, details, figcaption, figure, footer, header, hgroup, main, nav, section, summary { display: block; }
+
+* { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
 
 /* =============================================================================
   Typography
@@ -32,41 +33,57 @@ article, aside, details, figcaption, figure, footer, header, hgroup, nav, sectio
 body {
   margin: 0;
   padding: 0;
-  font-family: "Helvetica", "Arial", sans-serif;
-  font-size: 13px;
+  font-size: 100%;
   line-height: 1.231;
 }
 
 
 h1 {
+  font-size: 2em;
+  margin: 0.67em 0;
 }
+
 h2 {
+  font-size: 1.5em;
+  margin: 0.83em 0;
 }
+
 h3 {
+  font-size: 1.17em;
+  margin: 1em 0;
 }
+
 h4 {
+  font-size: 1em;
+  margin: 1.33em 0;
 }
+
 h5 {
+  font-size: 0.83em;
+  margin: 1.67em 0;
 }
+
 h6 {
+  font-size: 0.67em;
+  margin: 2.33em 0;
 }
 
 p {
-
+  margin: 1em 0;
 }
 
 
 b, strong { font-weight: bold; }
 ins { background: #ff9; color: #000; text-decoration: none; }
 mark { background: #ff0; color: #000; font-style: italic; font-weight: bold; }
-small { font-size: 85%; }
+small { font-size: 80%; }
 abbr[title] { border-bottom: 1px dotted; }
 dfn { font-style: italic; }
 sub, sup { font-size: 75%; line-height: 0; position: relative; vertical-align: baseline; }
 sup { top: -0.5em; }
 sub { bottom: -0.25em; }
 q { quotes: none; }
-q:before, q:after { content: ""; content: none; }
+q:before, q:after { content: ''; content: none; }
 blockquote { margin: 1em 40px; }
 pre, code, kbd, samp { font-family: monospace, monospace; _font-family: 'courier new', monospace; font-size: 1em; }
 pre { white-space: pre; white-space: pre-wrap; word-wrap: break-word; }
@@ -88,7 +105,7 @@ a:focus {
 }
 a:hover,
 a:active {
-
+  outline: 0;
 }
 
 .skip2,
@@ -108,20 +125,21 @@ a:active {
   Lists
 ============================================================================= */
 
+dl,
+dd,
+dt,
+menu,
 ul,
-ol {
-  margin: 1em 0;
-  padding: 0 0 0 2em;
-}
+ol,
 li {
-}
-ol li {
+  margin: 0;
+  padding: 0;
 }
 
-dd {
-  margin: 0 0 0 2em;
-}
-dt {
+nav ul,
+nav ol {
+  list-style: none;
+  list-style-image: none;
 }
 
 /* =============================================================================
@@ -139,7 +157,6 @@ img {
   border: 0;
   vertical-align: middle;
   -ms-interpolation-mode: bicubic;
-  interpolation-mode: bicubic;
 }
 
 figure { margin: 0; }
@@ -163,6 +180,7 @@ fieldset {
 legend {
   border: 0;
   padding: 0;
+  white-space: normal;
 }
 .lt-ie8 legend {
   margin-left: -7px;
@@ -175,7 +193,6 @@ button,
 input,
 select,
 textarea {
-  color: #222;
   font-family: sans-serif;
   font-size: 100%;
   margin: 0;
@@ -187,7 +204,6 @@ button,
 input {
   line-height: normal;
 }
-.ie7 button, .ie7 input { overflow: visible; }
 
 button::-moz-focus-inner,
 input::-moz-focus-inner { border: 0; padding: 0; }
@@ -214,38 +230,39 @@ input[type="number"]::-webkit-search-cancel-button {
 input[type="search"] {
   -webkit-appearance: textfield;
   appearance: textfield;
-  -webkit-box-sizing: content-box;
-  -moz-box-sizing: content-box;
-  box-sizing: content-box;
 }
 input[type="search"]::-webkit-search-decoration,
 input[type="search"]::-webkit-search-cancel-button {
   -webkit-appearance: none;
 }
 
-input:valid,
-textarea:valid {
-}
-
-input:invalid,
-textarea:invalid {
-  background-color: #f0dddd;
-}
-
 input[type="checkbox"],
 input[type="radio"] {
-  box-sizing: border-box;
+  padding: 0;
+  *height: 13px;
+  *width: 13px;
+}
+
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  border: 0;
+  padding: 0;
 }
 
 input::-webkit-input-placeholder { color: #999; }
 input:-moz-placeholder { color: #999; }
 input::placeholder { color: #999; }
 
+textarea {
+  overflow: auto;
+  vertical-align: top;
+}
+
 /* -----------------------------------------------------------------------------
   Buttons
 ----------------------------------------------------------------------------- */
 
-button, input[type="button"], input[type="reset"], input[type="submit"] { cursor: pointer; -webkit-appearance: button; }
+button, html input[type="button"], input[type="reset"], input[type="submit"] { cursor: pointer; -webkit-appearance: button; *overflow: visible; }
 
 [role="button"],
 input[type="reset"],
@@ -276,6 +293,11 @@ input[type="reset"]:active,
 input[type="submit"]:active,
 button:active {
   top: 1px;
+}
+
+button[disabled],
+html input[disabled] {
+  cursor: default;
 }
 
 
