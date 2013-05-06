@@ -1,61 +1,66 @@
-/*jshint asi:true */
-/*global jQuery:true */
-;(function($) {
+/*jslint browser:true, sloppy:true, vars:true, indent:2 */
+/*global jQuery, $ */
+/*#jslint devel:true, debug:true */
+(function ($) {
   "use strict";
 
   // TODO: set suitable name:
-  var pluginName = 'ExamplePlugin'
+  var pluginName = 'ExamplePlugin';
 
-  $[pluginName] = function(element, options) {
+  $[pluginName] = function (element, options) {
+
+    var plugin = this;
+    var $element = $(element);
 
     // defaults
     var defaultOptions = {
       option: null,
-      test: null
-    }
+      done: true
+    };
 
     // (internal) settings
     var settings = {
-      onFoo: function() { } // a callback
-    }
-
-    // scoping helper inside events eg
-    var plugin = this
-
-    // global element reference
-    var $element = $(element)
+      active: 'ok',
+      onFoo: function () { } // a callback
+    };
 
     //constructor
-    var init = function() {
+    var init = function () {
 
-      settings = $.extend({}, settings, defaultOptions, options)
+      settings = $.extend({}, settings, defaultOptions, options);
+
 
       // code goes here
 
-    }
 
-    // Public method:
-    plugin.doSomething = function() {
+    }; // end init()
 
-    }
+    /**
+        Public method:
+    */
+    plugin.doSomething = function () {
 
-    // Een private method:
-    var doPrivate = function() {
+    }; // end doSomething()
 
-    }
+    /**
+       Private method:
+    */
+    var doPrivate = function () {
+
+    }; // end doPrivate()
 
     // initialize
-    init()
+    init();
 
   };
 
-  $.fn[pluginName] = function(options) {
-    return this.each(function() {
-      if($(this).data(pluginName) === 'undefined') {
-        var plugin = new $[pluginName](this, options)
-        $(this).data(pluginName, plugin)
+  $.fn[pluginName] = function (options) {
+    return this.each(function () {
+      if ($(this).data(pluginName) === 'undefined') {
+        var plugin = new $[pluginName](this, options);
+        $(this).data(pluginName, plugin);
       }
-    })
-  }
+    });
+  };
 
-})(jQuery);
+}(jQuery));

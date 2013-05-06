@@ -1,8 +1,9 @@
 /**
   Example.nl - engine.js
 */
-/*jshint asi:true */
-/*global jQuery:true */
+/*jslint browser:true, sloppy:true, vars:true, indent:2 */
+/*global jQuery, $ */
+/*#jslint devel:true, debug:true */
 
 /**
   Base:
@@ -13,32 +14,32 @@ var Example = {
 
   defaults: {},
 
-  init: function(){
+  init: function () {
 
 //    console.log('init')
 
   },
 
-  doSomething: function(event){
+  doSomething: function (event) {
 
   }
 
-}
+};
 
 
 /**
   Document Ready:
 */
-$(document).ready(function(){
+$(document).ready(function () {
 
 
 
 /**
   Skip2 links move focus to target:
 */
-  $('a[href^="#"]').on('click', function(){
-    $( $(this).attr('href') ).focus()
-  })
+  $('a[href^="#"]').on('click', function () {
+    $($(this).attr('href')).focus();
+  });
 
 
-}) // end document.ready
+}); // end document.ready
