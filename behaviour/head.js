@@ -2,7 +2,13 @@
   Example.nl - head.js
 */
 /*jslint browser:true, sloppy:true, vars:true, indent:2 */
-/*#jslint devel:true, debug:true */
+/* jslint devel:true, debug:true */
+
+
+
+
+
+
 
 /* Modernizr 2.6.2 (Custom Build) | MIT & BSD
  * Build: http://modernizr.com/download/#-touch-printshiv-cssclasses-teststyles-testprop-testallprops-prefixes-domprefixes
