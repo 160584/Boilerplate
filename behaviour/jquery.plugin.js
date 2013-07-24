@@ -1,6 +1,6 @@
 /*jslint browser:true, sloppy:true, vars:true, indent:2 */
 /*global jQuery, $ */
-/*#jslint devel:true, debug:true */
+/* jslint devel:true, debug:true */
 (function ($) {
   "use strict";
 
@@ -24,17 +24,6 @@
       onFoo: function () { } // a callback
     };
 
-    //constructor
-    var init = function () {
-
-      settings = $.extend({}, settings, defaultOptions, options);
-
-
-      // code goes here
-
-
-    }; // end init()
-
     /**
         Public method:
     */
@@ -49,6 +38,24 @@
 
     }; // end doPrivate()
 
+
+
+
+    //constructor
+    var init = function () {
+
+      settings = $.extend({}, settings, defaultOptions, options);
+
+
+      // code goes here
+      console.log($element);
+
+
+      // make chainable:
+      return $element;
+
+    }; // end init()
+
     // initialize
     init();
 
@@ -56,7 +63,7 @@
 
   $.fn[pluginName] = function (options) {
     return this.each(function () {
-      if ($(this).data(pluginName) === 'undefined') {
+      if (typeof $(this).data(pluginName) === 'undefined') {
         var plugin = new $[pluginName](this, options);
         $(this).data(pluginName, plugin);
       }
