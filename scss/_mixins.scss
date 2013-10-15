@@ -1,0 +1,131 @@
+/*
+    _mixins
+*/
+
+
+/*
+    'Conditional' Media Queries:
+    
+    $fix-viewport          :  the value to use as the viewport in the desired mediaquery
+
+    respond-min( $width )  :  Outputs a mediaquery with 'min-width' porperty.
+    respond-max( $width )  :  Outputs a mediaquery with 'max-width' porperty.
+    
+*/
+
+$fixViewport: false !default;
+
+@mixin respond-min($width) {
+    // If we're outputting for a fixed media query set...
+    @if $fixViewport {
+        // ...and if we should apply these rules...
+        @if $fixViewport >= $width {
+            // ...output the content the user gave us.
+            @content;
+        }
+    }
+    @else {
+        // Otherwise, output it using a regular media query
+        @media screen and (min-width: $width) {
+            @content;
+        }
+    }
+}
+
+@mixin respond-max($width) {
+    // If we're outputting for a fixed media query set...
+    @if $fixViewport {
+        // ...and if we should apply these rules...
+        @if $fixViewport >= $width {
+            // ...output the content the user gave us.
+            @content;
+        }
+    }
+    @else {
+        // Otherwise, output it using a regular media query
+        @media screen and (max-width: $width) {
+            @content;
+        }
+    }
+}
+
+
+
+/* 
+
+    Styles for Old IE:
+
+*/
+
+$oldIE: false !default;
+
+@mixin oldIE {
+    // Only use this content if we're dealing with old IE
+    @if $oldIE {
+        @content;
+    }
+}
+
+
+
+/*
+    Image replacement / hide-text
+*/
+@mixin hide-text {
+
+}
+
+
+/*
+    Hide contents visually, but accessibly
+*/
+@mixin hide-visually {
+  position: absolute;
+  border: 0;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+
+
+/* 
+    Clearfix:
+*/
+@mixin clearfix {
+    &:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+}
+@mixin clearfix-reset {
+    &:after {
+        display: none;
+        clear: none;
+    }
+}
+
+
+/* 
+    HD-assets:
+    
+    Gebruik een media-query om een hoge resolutie asset te gebruiken als background-image.
+
+*/
+@mixin hd-asset($url, $size: 'auto 100%' ) {
+    
+    @media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (-o-min-device-pixel-ratio: 3/2), only screen and (min--moz-device-pixel-ratio: 1.5), only screen and (min-device-pixel-ratio: 1.5) {
+    & {
+        background-image: url($url);
+        background-size: $size;
+      }
+    }
+
+}
+
+
+

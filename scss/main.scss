@@ -1,0 +1,46 @@
+/*!
+
+    Novility.com
+
+    ...
+
+*/
+
+
+/* Colors */
+$colorBlue      = "#0000ff";
+$colorBlueLight = "#0000ff";
+$colorBlueDark  = "#0000ff";
+$colorGrey      = "#0000ff";
+$colorOrange    = "#0000ff";
+$colorGreen     = "#0000ff";
+
+
+/* Typography */
+$sizeS  = '0.8em';
+$sizeM  = '1em';
+$sizeL  = '1.2em';
+$sizeXL = '2em';
+
+
+/* Breakpoints */
+$widthS  = "400px";
+$widthM  = "750px";
+$widthL  = "1000px";
+$widthXL = "1200px";
+
+
+/* Components */
+@include "_mixins";
+
+@include "_normalize";
+@include "_base";
+@include "_fonts";
+
+@include "_menu";
+@include "_content";
+
+
+@media print {
+  @include "print";
+}
