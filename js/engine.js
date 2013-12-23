@@ -1,6 +1,6 @@
 /*jslint browser:true, sloppy:true, vars:true, indent:2 */
-/*global jQuery, $ */
 /* jslint devel:true, debug:true */
+/*global Modernizr, jQuery, $ */
 
 
 
