@@ -8,42 +8,42 @@
 
 
 /* Colors */
-$colorBlue      = "#000066";
-$colorBlueLight = "#0000ff";
-$colorBlueDark  = "#000033";
-$colorRed       = "red";
-$colorGreen     = "green";
+$colorBlue      : "#000066";
+$colorBlueLight : "#0000ff";
+$colorBlueDark  : "#000033";
+$colorRed       : "red";
+$colorGreen     : "green";
 
 
 /* Typography */
-$sizeS  = "0.8em";
-$sizeM  = "1em";
-$sizeL  = "1.2em";
-$sizeXL = "2em";
+$sizeS  : "0.8em";
+$sizeM  : "1em";
+$sizeL  : "1.2em";
+$sizeXL : "2em";
 
 
 /* Breakpoints */
-$widthS  = "400px";
-$widthM  = "750px";
-$widthL  = "1000px";
-$widthXL = "1200px";
+$widthS  : "400px";
+$widthM  : "750px";
+$widthL  : "1000px";
+$widthXL : "1200px";
 
 
 /* Components */
-@include "_mixins";
+@import "_mixins";
 
-@include "_normalize";
-@include "_base";
-@include "_base_fonts";
-@include "_base_layout";
+@import "_normalize";
+@import "_base";
+@import "_base_fonts";
+@import "_base_layout";
 
-@include "_menu";
-//@include "_menu_sub";
+@import "_menu";
+//@import "_menu_sub";
 
-//@include "_page_content";
-//@include "_page_landing";
+//@import "_page_content";
+//@import "_page_landing";
 
 
 @media print {
-  @include "print";
+  @import "print";
 }
