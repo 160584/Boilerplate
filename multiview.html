@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset=utf-8>
+
+<title>MulltiView Testing</title>
+
+<style>
+
+html {
+  height: 100%;
+}
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 99.5%;
+  text-align: center;
+  font: 100% / 1 monospace;
+  color: #fff;
+  background: silver;
+}
+
+iframe {
+  height: 100%;
+  margin: 0 1% 0 0;
+  
+  border: 0 solid;
+}
+
+::-webkit-scrollbar { width: 5px; height: 5px; }
+::-webkit-scrollbar-track-piece,
+::-webkit-scrollbar-button,
+::-webkit-scrollbar-track { background: silver }
+::-webkit-scrollbar-thumb { background: grey }
+/* * /
+::-webkit-scrollbar-corner { }
+::-webkit-resizer { }
+/* */
+
+</style>
+</head>
+<body>
+
+<!-- 240 - -><iframe width="245" sandbox="allow-same-origin allow-forms allow-scripts"></iframe><!-- -->
+
+<!-- 320 --><iframe width="325" sandbox="allow-same-origin allow-forms allow-scripts"></iframe><!-- -->
+
+<!-- 480 - -><iframe width="485" sandbox="allow-same-origin allow-forms allow-scripts"></iframe><!-- -->
+
+<!-- 550 - -><iframe width="555" sandbox="allow-same-origin allow-forms allow-scripts"></iframe><!-- -->
+
+<!-- 600 - -><iframe width="605" sandbox="allow-same-origin allow-forms allow-scripts"></iframe><!-- -->
+
+<!-- 768 --><iframe width="773" sandbox="allow-same-origin allow-forms allow-scripts"></iframe><!-- -->
+
+<!-- 820 - -><iframe width="825" sandbox="allow-same-origin allow-forms allow-scripts"></iframe><!-- -->
+
+<!-- 1024 - -><iframe width="1029" sandbox="allow-same-origin allow-forms allow-scripts"></iframe><!-- -->
+
+<!-- 1200 - -><iframe width="1205" sandbox="allow-same-origin allow-forms allow-scripts"></iframe><!-- -->
+
+<!--
+
+  Credits
+  =======
+
+  A tool by Matt Kersley (http://mattkersley.com)
+  Fork it on Github: https://github.com/mattkersley/Responsive-Design-Testing
+
+-->
+
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script>
+
+var defaultUrl = './',
+    firstFrame = null;
+
+// Load the url into all iframes, except the requesting iframe
+function loadPage(url, firstFrame) {
+
+  $('iframe').not(firstFrame).attr('src', url)
+
+}
+
+$(document).ready(function(){
+  
+  // Load the initial page query. Start with the hash-value string and fallback to the default
+  var query = document.location.hash.substr(1) || defaultUrl
+
+  loadPage(query, null)
+
+
+  // Toggle classnames for iframe-size(s)
+  $('input[name=size]').on('change', function(){
+
+    document.body.className = this.value
+
+  })
+  
+  // Add shortcut-key to radio-buttons
+  $(window).on('keyup', function(event){
+  // F12 = 123
+  // + = 107
+    if(event.keyCode === 107) {
+      $('input[type=radio]:not(:checked)').first().click()
+    }
+
+  })
+
+
+  // When an iframe loads a (new) url
+  $('iframe').load(function(){
+
+    try {
+
+      var u = $(this).contents().get(0).location
+
+      document.location.hash = u.href
+
+      firstFrame = this
+
+    } catch(e) {
+
+      console.warn('!', e)
+
+    }
+
+  })
+
+  // When target-url changes in location-bar
+  $(window).on('hashchange', function(event){
+
+    var newUrl = event.originalEvent.newURL.split('#')[1]
+
+    loadPage(newUrl, firstFrame)
+
+  })
+
+
+});
+</script>
+
+</body>
+</html>

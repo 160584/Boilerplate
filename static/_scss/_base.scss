@@ -1,0 +1,61 @@
+/* ==========================================================================
+   Base
+   ========================================================================== */
+
+* {
+  @include box-sizing(border-box);
+}
+*:before,
+*:after {
+  @include box-sizing(border-box);
+}
+
+// http://timkadlec.com/2012/10/ie10-snap-mode-and-responsive-design/
+@-ms-viewport {
+  width: device-width;
+}
+
+html,
+body {
+  height: auto;
+  min-height: 100%;
+
+  font-family: $fontRegular;
+  font-size: 1em;
+  line-height: 1.4;
+  color: $colorBlack;
+  background-color: $colorWhite;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+}
+
+body {
+  position: relative;
+  padding: 0;
+  margin: 0;
+}
+
+
+
+
+
+
+
+
+/* ==========================================================================
+   Helper classes
+   ========================================================================== */
+
+.hidden {
+  display: none !important;
+  visibility: hidden;
+}
+.visuallyhidden {
+  @include hide-visually();
+}
+.hide-text {
+  @include hide-text();
+}
+.clearfix {
+  @include clearfix;
+}

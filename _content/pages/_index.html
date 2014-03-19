@@ -1,0 +1,69 @@
+---
+layout: baseline
+title: Templates index
+---
+
+---head_extra---
+<link rel="shortcut icon" href="{{ STATIC_URL }}img/favicon.ico"> 
+
+---styles_extra---
+<style>
+h1 {
+ color: #f60; 
+}
+body {
+  margin: 0 auto;
+  max-width: 34em;
+  min-height: 100%;
+  color: #000;
+  background: #fff;
+  font: 100% / 1.2 sans-serif;
+  font-family: Arial, sans-serif;
+}
+h1 {
+  color: #000;
+  border-bottom: 2px solid #000;
+}
+
+ul {
+  padding: 0;
+}
+li {
+  line-height: 1;
+  margin: 1em 0;
+}
+
+a {
+  color: #f00;
+}
+a:hover,
+a:focus {
+  color: #e00;
+}
+
+
+[role=contentinfo] {
+  margin: 10% auto;
+  width: 100%;
+  text-align: center;
+}
+img {
+  border: none;
+}
+</style>
+
+---content---
+
+<h1>{{ page.title }}</h1>
+
+<ul>
+{% for template_file in site.pages %}
+  {% if template_file.slug and template_file.slug|slice(0,1) != "_" %}
+  <li><a href="{{ template_file.url }}"><strong>{{ template_file.slug|slice(0,3) }}</strong>: {{ template_file.title }}</a></li>
+  {% endif %}
+{% endfor %}
+</ul>
+
+<div class="footer" role="contentinfo">
+  <a href="http://www.fabrique.nl/" rel="author"><img src="http://www.fabrique.nl/media/site/img/logo-fab-nl.png" alt="Fabrique [merken, design &amp; interactie]" /></a>  
+</div>

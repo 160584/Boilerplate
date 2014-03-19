@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<!--[if lt IE 9]><html class="no-js oldie" lang="{{ site.language }}"><![endif]-->
+<!--[if gte IE 9]><!--><html class="no-js" lang="{{ site.language }}"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+
+  <title>{% if page.title is not empty %}{{ page.title }} - {% endif %}{{ site.title }}</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- STYLES: -->
+  <!--//NOTE: Use minified main.min.css in production:  -->
+  <link rel="stylesheet" href="{{ STATIC_URL }}css/main.max.css">
+
+  {{ styles_extra|raw }}
+
+  <!--//NOTE: Use minified version 'head.min.js' in production -->
+  <script src="{{ STATIC_URL }}js/head.max.js"></script>
+
+  {{ head_extra|raw }}
+
+</head>
+<body class="{{ page.body_class|default('') }}">
+
+  <div id="skip2">
+    <a href="#main" class="skip2">Skip to main content</a>
+    <a href="#menu" class="skip2">Skip to navigation</a>
+  </div>
+
+  <div id="page" class="">
+
+    {% include "base_header.html" %}
+  
+  
+    <section class="main" id="main" role="main">
+      {{ content|raw }}
+    </section>
+
+
+    {% include "base_footer.html" %}
+
+  </div><!-- /#page -->
+
+  {% include "base_menu.html" %}
+
+
+<!-- SCRIPTS: -->
+<!-- //NOTE: Use minified script 'main.min.js' for production. See "Gruntfile.js" for all scripts/settings. -->
+ <script src="{{ STATIC_URL }}js/main.max.js"></script> 
+
+
+</body>
+</html>
